@@ -1,18 +1,32 @@
-/** Draws ths Sierpinski Triangle fractal. */
-public class Sierpinski {
-	
-	public static void main(String[] args) {
-		sierpinski(Integer.parseInt(args[0]));
-	}
-	
-	// Draws a Sierpinski triangle of depth n on the standard canvass.
-	public static void sierpinski (int n) {
-		//// Replace this comment with your code
-	}
-	
-	// Does the actual drawing, recursively.
-	private static void sierpinski(int n, double x1, double x2, double x3,
-		                                 double y1, double y2, double y3) {
-		//// Replace this comment with your code
-	}
+public class IsSorted {
+
+    // Public function: called by the user
+    public static boolean isSorted(int[] a) {
+        return isSorted(a, 0);
+    }
+
+    // Helper recursive function
+    private static boolean isSorted(int[] a, int i) {
+
+        // Base case: reached the end (or single element)
+        if (i >= a.length - 1) {
+            return true;
+        }
+
+        // If current pair is not in non-decreasing order → not sorted
+        if (a[i] > a[i + 1]) {
+            return false;
+        }
+
+        // Recursive call on the rest of the array
+        return isSorted(a, i + 1);
+    }
+
+    public static void main(String[] args) {
+        int[] a = {1, 2, 2, 5};
+        System.out.println(isSorted(a)); // true
+
+        int[] b = {1, 3, 2};
+        System.out.println(isSorted(b)); // false
+    }
 }
